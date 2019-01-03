@@ -1,10 +1,7 @@
 //
 //  ViewController.swift
 //  SensorTests
-//
-//  Created by Edward Lemaire on 2018-05-08.
-//  Copyright © 2018 Edward Lemaire. All rights reserved.
-//
+
 
 import UIKit
 import CoreMotion
@@ -30,7 +27,6 @@ class ViewController:  UIViewController {
         if change == false {
             //press.isEnabled = false
         }
-        self.fileinator(xa: self.xacc)
     }
     func accg() {
         motion.accelerometerUpdateInterval = 0.02
@@ -103,29 +99,6 @@ class ViewController:  UIViewController {
         gyro()
         magno()
     }
-    
-    func fileinator(xa:[Double]){
-        let xfile = "xacc.txt"
-        let value = xa.description
-        if let dir = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask).first {
-            let fileURL = dir.appendingPathComponent(xfile)
-            do {
-                try value.write(to: fileURL, atomically: false, encoding: .utf8)
-            }
-            catch {
-                print("ERROR!!!!")
-            }
-            do {
-                let text2 = try String(contentsOf: fileURL, encoding: .utf8)
-                //print(text2)
-                //self.motion.stopAccelerometerUpdates()
-            }
-            catch {print("Check file")}
-            
-        }
-    }
-    
-    
     
 }
 
