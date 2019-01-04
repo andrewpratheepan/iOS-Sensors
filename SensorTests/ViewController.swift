@@ -32,25 +32,16 @@ class ViewController:  UIViewController {
         motion.accelerometerUpdateInterval = 0.02
         motion.startAccelerometerUpdates(to: OperationQueue.current!){
             (data, er) in
-            //print("whoops")
             if let myD = data{
                 
                 if self.change == true{
-                    //print("working...")
-                    //let cd = CMAcceleration()
                     self.x.text = "x: \(myD.acceleration.x)"
                     self.y.text = "y: \(myD .acceleration.y)"
                     self.z.text = "z: \(myD.acceleration.z)"
                     self.xacc.append(myD.acceleration.x)
                     self.yacc.append(myD.acceleration.y)
                     self.zacc.append(myD.acceleration.z)
-                    //print(myD.acceleration)
-                    //if (abs(myD.acceleration.z) > 5 || abs(myD.acceleration.x) > 5 || abs(myD.acceleration.y) > 5){
-                    //print(myD.acceleration, "gravity")
-                    //print(myD.acceleration.x*(-9.81), "\t", myD.acceleration.y*(-9.81), "\t",myD.acceleration.z*(-9.81))
-                    //print(myD.timestamp)
-                    //}
-                    //self.view.reloadInputViews()
+                    
                 }
             }
             
@@ -62,10 +53,7 @@ class ViewController:  UIViewController {
         motion.startDeviceMotionUpdates(to: OperationQueue.current!){ (data, error) in
             if self.change == true{
                 if let d = data{
-                    //print(d.userAcceleration, "no gravity")
-                    //print(d.userAcceleration.x)
-                    //print(d.timestamp)
-                    //print(d.userAcceleration.x*(-9.81), "\t", d.userAcceleration.y*(-9.81), "\t",d.userAcceleration.z*(-9.81))
+                    
                 }
             }
         }
@@ -76,7 +64,7 @@ class ViewController:  UIViewController {
             (data,error) in
             if self.change == true{
                 if let gyroData = data{
-                    //print(gyroData.rotationRate)
+                    
                 }
             }
             
@@ -88,7 +76,7 @@ class ViewController:  UIViewController {
             (data,error) in
             if self.change == true{
                 if let mag = data{
-                    print(mag)
+                    //print(mag)
                 }
             }
         }
